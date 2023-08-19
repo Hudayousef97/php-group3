@@ -2,9 +2,6 @@
 E-commerce Web Application Readme <br /><br />
 Welcome to an E-commerce Web Application! This project This project has a user side where they can view product categories, add products to the cart and proceed for checkout while from the administration side, the Admin can view sales, and users, add products and categories, and can edit, update and delete all the items mentioned previously, The user can also leave comments on each product if they want.
 
-## Credential for admin panel :
-- username: admin
-- Password: admin
 ## User Requirements:
 ### Admin
 1. Admin Can Login
