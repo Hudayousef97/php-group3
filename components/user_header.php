@@ -18,11 +18,11 @@
       <a href="home.php" class="logo">G-goods<span>.</span></a>
 
       <nav class="navbar">
-         <a href="home.php">home</a>
-         <a href="about.php">about</a>
-         <a href="orders.php">orders</a>
-         <a href="shop.php">shop</a>
-         <a href="contact.php">contact</a>
+         <a href="home.php">Home</a>
+         <a href="shop.php">Shop</a>
+         <a href="orders.php">Orders</a>
+         <a href="about.php">About</a>
+         <a href="contact.php">Contact Us</a>
       </nav>
 
       <div class="icons">
