@@ -13,7 +13,7 @@ if(!isset($admin_id)){
 if(isset($_POST['update_payment'])){
    $order_id = $_POST['order_id'];
    $payment_status = $_POST['payment_status'];
-   $payment_status = filter_var($payment_status, FILTER_SANITIZE_STRING);
+   $payment_status = filter_var($payment_status, FILTER_SANITIZE_SPECIAL_CHARS);
    $update_payment = $conn->prepare("UPDATE `orders` SET payment_status = ? WHERE id = ?");
    $update_payment->execute([$payment_status, $order_id]);
    $message[] = 'payment status updated!';
