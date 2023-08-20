@@ -13,9 +13,9 @@ if (isset($_SESSION['user_id'])) {
 if (isset($_POST['submit'])) {
 
     $name = $_POST['name'];
-    $name = filter_var($name, FILTER_SANITIZE_STRING);
+    $name = filter_var($name, FILTER_SANITIZE_SPECIAL_CHARS);
     $email = $_POST['email'];
-    $email = filter_var($email, FILTER_SANITIZE_STRING);
+    $email = filter_var($email, FILTER_SANITIZE_SPECIAL_CHARS);
     $pass = $_POST['pass'];  // No need to sanitize before validation
     $cpass = $_POST['cpass']; // No need to sanitize before validation
 
