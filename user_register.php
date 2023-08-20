@@ -4,49 +4,39 @@ include 'components/connect.php';
 
 session_start();
 
-if (isset($_SESSION['user_id'])) {
-    $user_id = $_SESSION['user_id'];
-} else {
-    $user_id = '';
-}
+if(isset($_SESSION['user_id'])){
+   $user_id = $_SESSION['user_id'];
+}else{
+   $user_id = '';
+};
 
-if (isset($_POST['submit'])) {
+if(isset($_POST['submit'])){
 
-    $name = $_POST['name'];
-    $name = filter_var($name, FILTER_SANITIZE_STRING);
-    $email = $_POST['email'];
-    $email = filter_var($email, FILTER_SANITIZE_STRING);
-    $pass = $_POST['pass'];  // No need to sanitize before validation
-    $cpass = $_POST['cpass']; // No need to sanitize before validation
+   $name = $_POST['name'];
+   $name = filter_var($name, FILTER_SANITIZE_STRING);
+   $email = $_POST['email'];
+   $email = filter_var($email, FILTER_SANITIZE_STRING);
+   $pass = sha1($_POST['pass']);
+   $pass = filter_var($pass, FILTER_SANITIZE_STRING);
+   $cpass = sha1($_POST['cpass']);
+   $cpass = filter_var($cpass, FILTER_SANITIZE_STRING);
 
-    $select_user = $conn->prepare("SELECT * FROM `users` WHERE email = ?");
-    $select_user->execute([$email,]);
-    $row = $select_user->fetch(PDO::FETCH_ASSOC);
+   $select_user = $conn->prepare("SELECT * FROM `users` WHERE email = ?");
+   $select_user->execute([$email,]);
+   $row = $select_user->fetch(PDO::FETCH_ASSOC);
 
-    $uppercase = preg_match('@[A-Z]@', $pass);
-    $lowercase = preg_match('@[a-z]@', $pass);
-    $number = preg_match('@[0-9]@', $pass);
+   if($select_user->rowCount() > 0){
+      $message[] = 'email already exists!';
+   }else{
+      if($pass != $cpass){
+         $message[] = 'confirm password not matched!';
+      }else{
+         $insert_user = $conn->prepare("INSERT INTO `users`(name, email, password) VALUES(?,?,?)");
+         $insert_user->execute([$name, $email, $cpass]);
+         $message[] = 'registered successfully, login now please!';
+      }
+   }
 
-    $message = []; // Initialize the message array
-
-    if ($select_user->rowCount() > 0) {
-        $message[] = 'Email already exists!';
-    }
-
-    if ($pass != $cpass) {
-        $message[] = 'Confirm password not matched!';
-    }
-
-    if (!$uppercase || !$lowercase || !$number || strlen($pass) < 8) {
-        $message[] = 'Password must contain at least one uppercase letter, one lowercase letter, one number, and be at least 8 characters long.';
-    }
-
-    if (empty($message)) { // If no errors, proceed with registration
-        $hashed_pass = sha1($pass);
-        $insert_user = $conn->prepare("INSERT INTO `users`(name, email, password) VALUES(?,?,?)");
-        $insert_user->execute([$name, $email, $hashed_pass]);
-        $message[] = 'Registered successfully, login now please!';
-    }
 }
 
 ?>
