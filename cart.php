@@ -73,12 +73,12 @@ if(isset($_POST['update_qty'])){
       <img src="uploaded_img/<?= $fetch_cart['image']; ?>" alt="">
       <div class="name"><?= $fetch_cart['name']; ?></div>
       <div class="flex">
-         <div class="price">Price: $<?= $fetch_cart['price']; ?></div>
+         <div class="price">Price:<span class="price"style="text-decoration: line-through">$<?= $fetch_cart['price']; ?></span></div>
          <input type="number" name="qty" class="qty" min="1" max="99" onkeypress="if(this.value.length == 2) return false;" value="<?= $fetch_cart['quantity']; ?>">
          <button type="submit" class="fas fa-edit" name="update_qty"></button>
       </div>
       
-      <div class="sub-total"> Discount Price: <span>$<?= $sub_total = ($fetch_cart['price'] * $fetch_cart['quantity']); ?></span> </div>
+      <div class="sub-total"> Discount Price: <span class="sub-total" style="color:green">$<?= $sub_total = ($fetch_cart['price']/4 * $fetch_cart['quantity']); ?></span> </div>
       <input type="submit" value="delete item" onclick="return confirm('delete this from cart?');" class="delete-btn" name="delete">
    </form>
    <?php
