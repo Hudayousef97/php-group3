@@ -48,15 +48,15 @@ the page.
 
 
 
-Thank you for using the Quiz Application!  
+Thank you for Visiting the E-commerce Web Application!  
 <br /><br />
 
 
-- Huda yousef - (Scrum Master)
+- Huda Yousef - (Scrum Master)
 - Laith Yaseen - (Product Owner)
-- Ghaidaa taleb
+- Ghaidaa Taleb
 - Mu'taz Abu Yaquob
-- Rahaf
+- Rahaf Alkayyal
 
  GitHub link
 https://github.com/Hudayousef97/php-group3
