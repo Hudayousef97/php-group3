@@ -43,8 +43,6 @@ if(isset($_GET['delete'])){
 </head>
 <body>
 
-
-
 <section class="orders">
 
 <h1 class="heading">placed orders</h1>

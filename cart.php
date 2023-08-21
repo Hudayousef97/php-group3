@@ -91,10 +91,10 @@ if(isset($_POST['update_qty'])){
    </div>
 
    <div class="cart-total">
-      <p>grand total : <span>$<?= $grand_total; ?></span></p>
-      <a href="shop.php" class="option-btn">continue shopping</a>
-      <a href="cart.php?delete_all" class="delete-btn <?= ($grand_total > 1)?'':'disabled'; ?>" onclick="return confirm('delete all from cart?');">delete all item</a>
-      <a href="checkout.php" class="btn <?= ($grand_total > 1)?'':'disabled'; ?>">proceed to checkout</a>
+      <p>Grand Total : <span>$<?= $grand_total; ?></span></p>
+      <a href="shop.php" class="option-btn">Continue shopping</a>
+      <a href="cart.php?delete_all" class="delete-btn <?= ($grand_total > 1)?'':'disabled'; ?>" onclick="return confirm('delete all from cart?');">Delete all itemes</a>
+      <a href="checkout.php" class="btn <?= ($grand_total > 1)?'':'disabled'; ?>">Proceed to checkout</a>
    </div>
 
 </section>

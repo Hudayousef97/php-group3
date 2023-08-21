@@ -37,13 +37,13 @@ if(isset($_GET['delete'])){
 
 <section class="accounts">
 
-   <h1 class="heading">admin accounts</h1>
+   <h1 class="heading">Admin Accounts</h1>
 
    <div class="box-container">
 
    <div class="box">
-      <p>add new admin</p>
-      <a href="register_admin.php" class="option-btn">register admin</a>
+      <p>Add New Admin</p>
+      <a href="register_admin.php" class="option-btn">Add Admin</a>
    </div>
 
    <?php
@@ -53,8 +53,8 @@ if(isset($_GET['delete'])){
          while($fetch_accounts = $select_accounts->fetch(PDO::FETCH_ASSOC)){   
    ?>
    <div class="box">
-      <p> admin id : <span><?= $fetch_accounts['id']; ?></span> </p>
-      <p> admin name : <span><?= $fetch_accounts['name']; ?></span> </p>
+      <p> Admin id : <span><?= $fetch_accounts['id']; ?></span> </p>
+      <p> Admin name : <span><?= $fetch_accounts['name']; ?></span> </p>
       <div class="flex-btn">
          <a href="admin_accounts.php?delete=<?= $fetch_accounts['id']; ?>" onclick="return confirm('delete this account?')" class="delete-btn">delete</a>
          <?php
