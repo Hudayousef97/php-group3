@@ -138,38 +138,49 @@ if(isset($_GET['delete'])){
 
 </section>
 
+
+
 <section class="show-products">
+   <h1 class="heading">Products Added</h1>
 
-   <h1 class="heading">products added</h1>
+   <div class="table-container">
+      <table style="width: 90%; border-collapse: collapse; text-align: center;">
+         <thead>
+            <tr>
+               <th style="padding: 8px; border: 1px solid #ccc;">Image</th>
+               <th style="padding: 8px; border: 1px solid #ccc;">Name</th>
+               <th style="padding: 8px; border: 1px solid #ccc;">Price</th>
+               <th style="padding: 8px; border: 1px solid #ccc;">Details</th>
+               <th style="padding: 8px; border: 1px solid #ccc;">Actions</th>
+            </tr>
+         </thead>
+         <tbody>
+            <?php
+               $select_products = $conn->prepare("SELECT * FROM `products`");
+               $select_products->execute();
 
-   <div class="box-container">
-
-   <?php
-      $select_products = $conn->prepare("SELECT * FROM `products`");
-      $select_products->execute();
-      if($select_products->rowCount() > 0){
-         while($fetch_products = $select_products->fetch(PDO::FETCH_ASSOC)){ 
-   ?>
-   <div class="box">
-      <img src="../uploaded_img/<?= $fetch_products['image_01']; ?>" alt="">
-      <div class="name"><?= $fetch_products['name']; ?></div>
-      <div class="price">$<span><?= $fetch_products['price']; ?></span>/-</div>
-      <div class="details"><span><?= $fetch_products['details']; ?></span></div>
-      <div class="flex-btn">
-         <a href="update_product.php?update=<?= $fetch_products['id']; ?>" class="option-btn">update</a>
-         <a href="products.php?delete=<?= $fetch_products['id']; ?>" class="delete-btn" onclick="return confirm('delete this product?');">delete</a>
-      </div>
+               if ($select_products->rowCount() > 0) {
+                  while ($fetch_products = $select_products->fetch(PDO::FETCH_ASSOC)) {
+                     echo "<tr>";
+                     echo "<td style='border: 1px solid #ccc;'><img src='../uploaded_img/{$fetch_products['image_01']}' alt='Product Image' style='max-width: 100px; max-height: 100px;'></td>";
+                     echo "<td style='border: 1px solid #ccc; padding: 8px;'>{$fetch_products['name']}</td>";
+                     echo "<td style='border: 1px solid #ccc; padding: 8px;'>$<span>{$fetch_products['price']}</span>/-</td>";
+                     echo "<td style='border: 1px solid #ccc; padding: 8px;'>{$fetch_products['details']}</td>";
+                     echo "<td style='border: 1px solid #ccc; padding: 8px;'>
+                              <a href='update_product.php?update={$fetch_products['id']}' class='option-btn'>Update</a>
+                              <a href='products.php?delete={$fetch_products['id']}' class='delete-btn' onclick='return confirm(\"Delete this product?\");'>Delete</a>
+                           </td>";
+                     echo "</tr>";
+                  }
+               } else {
+                  echo '<tr><td colspan="5" style="border: 1px solid #ccc; padding: 8px;">No products added yet!</td></tr>';
+               }
+            ?>
+         </tbody>
+      </table>
    </div>
-   <?php
-         }
-      }else{
-         echo '<p class="empty">no products added yet!</p>';
-      }
-   ?>
-   
-   </div>
-
 </section>
+
 
 
 
