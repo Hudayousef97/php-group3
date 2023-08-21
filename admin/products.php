@@ -86,6 +86,7 @@ if(isset($_GET['delete'])){
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -97,9 +98,8 @@ if(isset($_GET['delete'])){
    <link rel="stylesheet" href="../css/admin_style.css">
 
 </head>
-<body>
 
-<?php include '../components/admin_header.php'; ?>
+<body>
 
 <section class="add-products">
 
@@ -137,8 +137,6 @@ if(isset($_GET['delete'])){
    </form>
 
 </section>
-
-
 
 <section class="show-products">
    <h1 class="heading">Products Added</h1>
@@ -180,14 +178,6 @@ if(isset($_GET['delete'])){
       </table>
    </div>
 </section>
-
-
-
-
-
-
-
-
 
 <script src="../js/admin_script.js"></script>
    
