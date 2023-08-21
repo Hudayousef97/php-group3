@@ -61,15 +61,23 @@ if(isset($_POST['submit'])){
 
 </head>
 <body>
+<div class="profile">
 
-<?php include '../components/admin_header.php'; ?>
+<?php
+ $select_profile = $conn->prepare("SELECT * FROM `admins` WHERE id = ?");
+ $select_profile->execute([$admin_id]);
+ $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
+?>
+ <p><?= $fetch_profile['name']; ?></p>
+         
+</div>
 
 <section class="form-container">
 
    <form action="" method="post">
       <h3>update profile</h3>
-      <input type="hidden" name="prev_pass" value="<?= $fetch_profile['password']; ?>">
       <input type="text" name="name" value="<?= $fetch_profile['name']; ?>" required placeholder="enter your username" maxlength="20"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
+      <input type="hidden" name="prev_pass" value="<?= $fetch_profile['password']; ?>">
       <input type="password" name="old_pass" placeholder="enter old password" maxlength="20"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
       <input type="password" name="new_pass" placeholder="enter new password" maxlength="20"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
       <input type="password" name="confirm_pass" placeholder="confirm new password" maxlength="20"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">

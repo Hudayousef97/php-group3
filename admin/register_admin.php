@@ -53,7 +53,6 @@ if(isset($_POST['submit'])){
 </head>
 <body>
 
-<?php include '../components/admin_header.php'; ?>
 
 <section class="form-container">
 

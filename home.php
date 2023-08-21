@@ -166,7 +166,7 @@ include 'components/wishlist_cart.php';
       <img src="uploaded_img/<?= $fetch_product['image_01']; ?>" alt="">
       <div class="name"><?= $fetch_product['name']; ?></div>
       <div class="flex">
-         <div class="price" ><span>$</span><?= $fetch_product['price']; ?></div><br>
+         <div class="price"style="text-decoration: line-through" ><span>$</span><?= $fetch_product['price']; ?></div><br>
          
         
          <input type="number" name="qty" class="qty" min="1" max="99" onkeypress="if(this.value.length == 2) return false;" value="1">
@@ -202,8 +202,8 @@ include 'components/wishlist_cart.php';
      $select_products->execute();
      if($select_products->rowCount() > 0){
       while($fetch_product = $select_products->fetch(PDO::FETCH_ASSOC)){
-      //   $price = $fetch_product['price'];
-      //   $disPrice = $price *0.5;
+        $price = $fetch_product['price'];
+        $disPrice = $price *0.5;
    ?>
    <form action="" method="post" class="swiper-slide slide">
       <input type="hidden" name="pid" value="<?= $fetch_product['id']; ?>">
@@ -215,8 +215,8 @@ include 'components/wishlist_cart.php';
       <img src="uploaded_img/<?= $fetch_product['image_01']; ?>" alt="">
       <div class="name"><?= $fetch_product['name']; ?></div>
       <div class="flex">
-      <div class="price" style="text-decoration: line-through"><span>$</span><?= $fetch_product['price']; ?></div><br>
-      <div class="price"style="color:green" ><span>$</span><?= $fetch_product['price']/4; ?></div><br>
+         <div class="price"><span>$</span><?= $fetch_product['price']; ?><span>/</span><?= $disPrice; ?></div><br>
+         
          <input type="number" name="qty" class="qty" min="1" max="99" onkeypress="if(this.value.length == 2) return false;" value="1">
       </div>
       <input type="submit" value="add to cart" class="btn" name="add_to_cart">

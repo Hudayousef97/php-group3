@@ -101,7 +101,6 @@ if(isset($_POST['update'])){
 </head>
 <body>
 
-<?php include '../components/admin_header.php'; ?>
 
 <section class="update-product">
 
