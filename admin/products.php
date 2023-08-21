@@ -145,11 +145,11 @@ if(isset($_GET['delete'])){
       <table style="width: 90%; border-collapse: collapse; text-align: center;">
          <thead>
             <tr>
-               <th style="padding: 8px; border: 1px solid #ccc;">Image</th>
-               <th style="padding: 8px; border: 1px solid #ccc;">Name</th>
-               <th style="padding: 8px; border: 1px solid #ccc;">Price</th>
-               <th style="padding: 8px; border: 1px solid #ccc;">Details</th>
-               <th style="padding: 8px; border: 1px solid #ccc;">Actions</th>
+               <th style="padding: 8px; border: 3px solid #ccc; font-size: 2rem;">Image</th>
+               <th style="padding: 8px; border: 3px solid #ccc; font-size: 2rem;">Name</th>
+               <th style="padding: 8px; border: 3px solid #ccc; font-size: 2rem;">Price</th>
+               <th style="padding: 8px; border: 3px solid #ccc; font-size: 2rem;">Details</th>
+               <th style="padding: 8px; border: 3px solid #ccc; font-size: 2rem;">Actions</th>
             </tr>
          </thead>
          <tbody>
@@ -160,11 +160,11 @@ if(isset($_GET['delete'])){
                if ($select_products->rowCount() > 0) {
                   while ($fetch_products = $select_products->fetch(PDO::FETCH_ASSOC)) {
                      echo "<tr>";
-                     echo "<td style='border: 1px solid #ccc;'><img src='../uploaded_img/{$fetch_products['image_01']}' alt='Product Image' style='max-width: 100px; max-height: 100px;'></td>";
-                     echo "<td style='border: 1px solid #ccc; padding: 8px;'>{$fetch_products['name']}</td>";
-                     echo "<td style='border: 1px solid #ccc; padding: 8px;'>$<span>{$fetch_products['price']}</span>/-</td>";
-                     echo "<td style='border: 1px solid #ccc; padding: 8px;'>{$fetch_products['details']}</td>";
-                     echo "<td style='border: 1px solid #ccc; padding: 8px;'>
+                     echo "<td style='border: 3px solid #ccc;'><img src='../uploaded_img/{$fetch_products['image_01']}' alt='Product Image' style='max-width: 100px; max-height: 100px;'></td>";
+                     echo "<td style='border: 3px solid #ccc; padding: 8px; font-size: 1.5rem;'>{$fetch_products['name']}</td>";
+                     echo "<td style='border: 3px solid #ccc; padding: 8px; font-size: 1.5rem;'>$<span>{$fetch_products['price']}</span>/-</td>";
+                     echo "<td style='border: 3px solid #ccc; padding: 8px; font-size: 1.5rem;'>{$fetch_products['details']}</td>";
+                     echo "<td style='border: 3px solid #ccc; padding: 8px; font-size: 1.5rem;'>
                               <a href='update_product.php?update={$fetch_products['id']}' class='option-btn'>Update</a>
                               <a href='products.php?delete={$fetch_products['id']}' class='delete-btn' onclick='return confirm(\"Delete this product?\");'>Delete</a>
                            </td>";
