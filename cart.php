@@ -73,7 +73,9 @@ if(isset($_POST['update_qty'])){
       <img src="uploaded_img/<?= $fetch_cart['image']; ?>" alt="">
       <div class="name"><?= $fetch_cart['name']; ?></div>
       <div class="flex">
-         <div class="price">Price: $<?= $fetch_cart['price']; ?></div>
+         <div class="price" >Price: <span style="text-decoration: line-through;color:red">$<?= $fetch_cart['price']; ?></span></div><br>
+         <div class="price"style="color:green"><span>$</span><?= $fetch_cart['price']/4; ?></div><br>
+
          <input type="number" name="qty" class="qty" min="1" max="99" onkeypress="if(this.value.length == 2) return false;" value="<?= $fetch_cart['quantity']; ?>">
          <button type="submit" class="fas fa-edit" name="update_qty"></button>
       </div>

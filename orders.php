@@ -33,7 +33,7 @@ if(isset($_SESSION['user_id'])){
 
 <section class="orders">
 
-   <h1 class="heading">Placed orders</h1>
+   <h1 class="heading">placed orders</h1>
 
    <div class="box-container">
 
@@ -46,17 +46,59 @@ if(isset($_SESSION['user_id'])){
          if($select_orders->rowCount() > 0){
             while($fetch_orders = $select_orders->fetch(PDO::FETCH_ASSOC)){
    ?>
-   <div class="box">
-      <p>Placed on : <span><?= $fetch_orders['placed_on']; ?></span></p>
-      <p>Name : <span><?= $fetch_orders['name']; ?></span></p>
-      <p>Email : <span><?= $fetch_orders['email']; ?></span></p>
-      <p>Number : <span><?= $fetch_orders['number']; ?></span></p>
-      <p>Address : <span><?= $fetch_orders['address']; ?></span></p>
-      <p>Payment method : <span><?= $fetch_orders['method']; ?></span></p>
-      <p>Your orders : <span><?= $fetch_orders['total_products']; ?></span></p>
-      <p>Total price : <span>$<?= $fetch_orders['total_price']; ?>/-</span></p>
-      <p> Payment status : <span style="color:<?php if($fetch_orders['payment_status'] == 'pending'){ echo 'red'; }else{ echo 'green'; }; ?>"><?= $fetch_orders['payment_status']; ?></span> </p>
+   
+     
+ 
+ <section class="show-products">
+
+   <div class="table-container">
+      <table style="width: 90%; border-collapse: collapse; text-align: center; background:orange">
+         <thead>
+            <tr>
+            
+               <th style="padding: 8px; border: 2px solid #ccc;font-size:larger">Placed on :</th>
+               <th style="padding: 8px; border: 2px solid #ccc;font-size:larger">Name :</th>
+               <th style="padding: 8px; border: 2px solid #ccc;font-size:larger">Email :</th>
+               <th style="padding: 8px; border: 2px solid #ccc;font-size:larger">Number :</th>
+               <th style="padding: 8px; border: 2px solid #ccc;font-size:larger"> Address :</th>
+               <th style="padding: 8px; border: 2px solid #ccc;font-size:larger"> Payment method :</th>
+               <th style="padding: 8px; border: 2px solid #ccc;font-size:larger"> Your orders  :</th>
+               <th style="padding: 8px; border: 2px solid #ccc;font-size:larger"> Total price :</th>
+               <th style="padding: 8px; border: 2px solid #ccc;font-size:larger"> Payment status :</th>
+               <th style="padding: 8px; border: 2px solid #ccc;font-size:larger"> Photo :</th>
+
+            </tr>
+         </thead>
+         <tbody>
+           
+               <?php
+
+               if ($select_orders->rowCount() > 0) {
+                  while ($fetch_orders = $select_orders->fetch(PDO::FETCH_ASSOC)) {
+                     echo "<tr>";
+                     echo "<td style='border: 2px solid #ccc; padding: 8px;'>{$fetch_orders['placed_on']}</td>";
+                     echo "<td style='border: 2px solid #ccc; padding: 8px;'>$<span>{$fetch_orders['name']}</span>/-</td>";
+                     echo "<td style='border: 2px solid #ccc; padding: 8px;'>{$fetch_orders['email']}</td>";
+                     echo "<td style='border: 2px solid #ccc; padding: 8px;'>{$fetch_orders['number']}</td>";
+                     echo "<td style='border: 2px solid #ccc; padding: 8px;'>{$fetch_orders['address']}</td>";
+                     echo "<td style='border: 2px solid #ccc; padding: 8px;'>{$fetch_orders['method']}</td>";
+                     echo "<td style='border: 2px solid #ccc; padding: 8px;'>{$fetch_orders['total_products']}</td>";
+                     echo "<td style='border: 2px solid #ccc; padding: 8px;'>{$fetch_orders['total_price']} </td>";
+                     echo "<td style='border: 2px solid #ccc; padding: 8px;'>{$fetch_orders['payment_status']}pendding</td>";
+                     echo "<td style='border: 2px solid #ccc;'><img src='../uploaded_img/{$fetch_orders['image_01']}' alt='Product Image' style='max-width: 100px; max-height: 100px;'></td>";
+
+                     echo "</tr>";
+                  }
+               } else {
+                  echo '<tr><td colspan="5" style="border: 2px solid #ccc; padding: 10px;">No products added yet!</td></tr>';
+               }
+            ?>
+         </tbody>
+      </table>
    </div>
+</section>     
+   </div>
+  
    <?php
       }
       }else{
@@ -68,17 +110,6 @@ if(isset($_SESSION['user_id'])){
    </div>
 
 </section>
-
-
-
-
-
-
-
-
-
-
-
 
 
 <?php include 'components/footer.php'; ?>
