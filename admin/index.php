@@ -12,7 +12,7 @@
             <!-- HEADER DESKTOP-->
 
             <!-- MAIN CONTENT-->
-            <div class="main-content">
+            <div class="main-content" style="background-color: gray;">
 
          
                 <div class="section__content section__content--p30">
@@ -38,10 +38,10 @@ include '../components/connect.php';
    <link rel="stylesheet" href="../css/admin_style.css">
 
 </head>
-<body>
+<body >
 
 
-<section class="dashboard">
+<section class="dashboard"  >
 
    <h1 class="heading">Dashboard</h1>
 

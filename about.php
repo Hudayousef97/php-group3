@@ -74,7 +74,7 @@ if(isset($_SESSION['user_id'])){
             <i class="fas fa-star"></i>
             <i class="fas fa-star-half-alt"></i>
          </div>
-         <h3>Mu'taz</h3>
+         <h3>Rahaf</h3>
       </div>
 
       <div class="swiper-slide slide">
@@ -88,24 +88,8 @@ if(isset($_SESSION['user_id'])){
             <i class="fas fa-star"></i>
             <i class="fas fa-star-half-alt"></i>
          </div>
-         <h3>Rahaf</h3>
-      </div>
-
-      <div class="swiper-slide slide">
-         <img src="images/pic-6.png" alt="">
-         <p> professional develoep and software application's client and server side. Can apply a wide range
-             of coding skills and help other programmers solve problems.</p>
-         <div class="stars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star-half-alt"></i>
-         </div>
          <h3>Laith</h3>
       </div>
-
-
 
       <div class="swiper-slide slide">
          <img src="images/pic-6.png" alt="">
@@ -123,6 +107,22 @@ if(isset($_SESSION['user_id'])){
 
 
 
+      <div class="swiper-slide slide">
+      <img src="images/pic-5.png" alt="">
+         <p> professional develoep and software application's client and server side. Can apply a wide range
+             of coding skills and help other programmers solve problems.</p>
+         <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+         </div>
+         <h3>Mu'tez</h3>
+      </div>
+
+
+
 
       <div class="swiper-slide slide">
          <img src="images/pic-6.png" alt="">
@@ -135,7 +135,7 @@ if(isset($_SESSION['user_id'])){
             <i class="fas fa-star"></i>
             <i class="fas fa-star-half-alt"></i>
          </div>
-         <h3>Huda</h3>
+         <h3></h3>
       </div>
 
    </div>

@@ -45,7 +45,7 @@ include 'components/wishlist_cart.php';
 
       <div class="swiper-slide slide">
          <div class="image">
-            <img src="images/home-img-1.png" alt="">
+            <img src="images/iphone-14-pro-model-unselect-gallery-2-202209_GEO_EMEA-removebg-preview.png" alt="">
          </div>
          <div class="content">
             <span>upto 50% off</span>

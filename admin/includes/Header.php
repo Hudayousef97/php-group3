@@ -1,4 +1,4 @@
-<header class="header-desktop">
+<header class="header-desktop"style="background-color: wheat;">
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
                         <div class="header-wrap">
@@ -111,7 +111,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="account-wrap">
+                                <div class="account-wrap" >
                                     <div class="account-item clearfix js-item-menu">
                                         <div class="image">
                                             <!-- <img src="images/icon/avatar-01.jpg" alt="John Doe" /> -->

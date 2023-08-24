@@ -100,7 +100,7 @@ if(isset($_GET['delete'])){
 </head>
 
 <body>
-
+<section class="flex">
 <section class="add-products">
 
    <h1 class="heading">add product</h1>
@@ -144,7 +144,7 @@ if(isset($_GET['delete'])){
    <div class="table-container">
       <table style="width: 90%; border-collapse: collapse; text-align: center;">
          <thead>
-            <tr>
+            <tr >
                <th style="padding: 8px; border: 3px solid #ccc; font-size: 2rem;">Image</th>
                <th style="padding: 8px; border: 3px solid #ccc; font-size: 2rem;">Name</th>
                <th style="padding: 8px; border: 3px solid #ccc; font-size: 2rem;">Price</th>
@@ -152,7 +152,7 @@ if(isset($_GET['delete'])){
                <th style="padding: 8px; border: 3px solid #ccc; font-size: 2rem;">Actions</th>
             </tr>
          </thead>
-         <tbody>
+         <tbody >
             <?php
                $select_products = $conn->prepare("SELECT * FROM `products`");
                $select_products->execute();
@@ -166,6 +166,7 @@ if(isset($_GET['delete'])){
                      echo "<td style='border: 3px solid #ccc; padding: 8px; font-size: 1.5rem;'>{$fetch_products['details']}</td>";
                      echo "<td style='border: 3px solid #ccc; padding: 8px; font-size: 1.5rem;'>
                               <a href='update_product.php?update={$fetch_products['id']}' class='option-btn'>Update</a>
+         
                               <a href='products.php?delete={$fetch_products['id']}' class='delete-btn' onclick='return confirm(\"Delete this product?\");'>Delete</a>
                            </td>";
                      echo "</tr>";
@@ -177,6 +178,7 @@ if(isset($_GET['delete'])){
          </tbody>
       </table>
    </div>
+</section>
 </section>
 
 <script src="../js/admin_script.js"></script>

@@ -49,7 +49,7 @@ if(isset($_SESSION['user_id'])){
    
      
  
- <section class="show-products">
+ <section class="show-products" >
 
    <div class="table-container">
       <table style="width: 90%; border-collapse: collapse; text-align: center; background:orange">
@@ -65,7 +65,7 @@ if(isset($_SESSION['user_id'])){
                <th style="padding: 8px; border: 2px solid #ccc;font-size:larger"> Your orders  :</th>
                <th style="padding: 8px; border: 2px solid #ccc;font-size:larger"> Total price :</th>
                <th style="padding: 8px; border: 2px solid #ccc;font-size:larger"> Payment status :</th>
-               <th style="padding: 8px; border: 2px solid #ccc;font-size:larger"> Photo :</th>
+               <!-- <th style="padding: 8px; border: 2px solid #ccc;font-size:larger"> Photo :</th> -->
 
             </tr>
          </thead>
@@ -85,7 +85,7 @@ if(isset($_SESSION['user_id'])){
                      echo "<td style='border: 2px solid #ccc; padding: 8px;'>{$fetch_orders['total_products']}</td>";
                      echo "<td style='border: 2px solid #ccc; padding: 8px;'>{$fetch_orders['total_price']} </td>";
                      echo "<td style='border: 2px solid #ccc; padding: 8px;'>{$fetch_orders['payment_status']}pendding</td>";
-                     echo "<td style='border: 2px solid #ccc;'><img src='../uploaded_img/{$fetch_orders['image_01']}' alt='Product Image' style='max-width: 100px; max-height: 100px;'></td>";
+                     // echo "<td style='border: 2px solid #ccc;'><img src='../uploaded_img/{$fetch_orders['image_01']}' alt='Product Image' style='max-width: 100px; max-height: 100px;'></td>";
 
                      echo "</tr>";
                   }
